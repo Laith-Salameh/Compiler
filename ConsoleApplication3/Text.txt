@@ -1,0 +1,60 @@
+Class test{
+
+//string s = "Hello World";
+	char star =  '*' ;
+  int main()
+  {
+	int x = 24 , y = 6 ;
+	x = readInt() ; 
+	y = readInt() ; 
+    write(  gcd(x,y) );
+	string s = "";
+	int i = 1 , j;
+	 while( i < 6){
+	 j = 0;
+	 s = "";
+		while ( j < i) {
+			s = s + "*" ; 
+			j = j + 1;
+		}
+		write(s);
+		i = i + 1;
+	 }
+
+
+    //write(s);
+    return 0;
+  }
+
+
+
+
+  int gcd(int a, int b)
+  {
+      if( a == 0 ){
+		return b;
+	  }
+        
+      if(b == 0 ){
+		return a;
+	  }
+        
+    if (a==b){
+		return a;
+	}
+
+
+    if (a>b)
+    {
+      return gcd(a % b,b);
+    }
+    else
+    {
+		int i = 0;
+		while( true ) {
+			
+		}
+		return 0;
+    }
+  }
+}

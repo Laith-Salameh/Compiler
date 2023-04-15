@@ -1,0 +1,246 @@
+start
+pushs "'"
+storeg 999
+pushg 999
+pusha main
+call
+stop
+
+
+main:
+pushi 24
+storel 0
+pushl 0
+pushi 6
+storel 1
+pushl 1
+pusha readInt
+call
+pushg 998
+storel 0
+pushl 0
+pusha readInt
+call
+pushg 998
+storel 1
+pushl 1
+pushl 0
+pushl 1
+pusha gcd__int__int
+call
+pop 2
+pushg 998
+pusha write__int
+call
+pop 1
+pushs ""
+storel 2
+pushl 2
+pushi 1
+storel 3
+pushl 3
+pushi 0
+storel 4
+pushl 4
+WHILE_BEGIN1:
+pushl 3
+pushi 6
+inf
+jz WHILE_END1
+pushi 0
+storel 4
+pushl 4
+pushs ""
+storel 2
+pushl 2
+WHILE_BEGIN2:
+pushl 4
+pushl 3
+inf
+jz WHILE_END2
+pushl 2
+pushs "*"
+concat
+storel 2
+pushl 2
+pushl 4
+pushi 1
+add
+storel 4
+pushl 4
+jump WHILE_BEGIN2
+WHILE_END2:
+pushl 2
+pusha write__string
+call
+pop 1
+pushl 3
+pushi 1
+add
+storel 3
+pushl 3
+jump WHILE_BEGIN1
+WHILE_END1:
+pushi 0
+storeg 998
+pushg 998
+return
+gcd__int__int:
+IF_BEGIN1:
+pushl -2
+pushi 0
+equal
+jz IF_END1
+pushl -1
+storeg 998
+pushg 998
+return
+IF_END1:
+IF_BEGIN2:
+pushl -1
+pushi 0
+equal
+jz IF_END2
+pushl -2
+storeg 998
+pushg 998
+return
+IF_END2:
+IF_BEGIN3:
+pushl -2
+pushl -1
+equal
+jz IF_END3
+pushl -2
+storeg 998
+pushg 998
+return
+IF_END3:
+IF_else_BEGIN1:
+pushl -2
+pushl -1
+sup
+jz ELSE_BEGIN1
+pushl -2
+pushl -1
+mod
+pushl -1
+pusha gcd__int__int
+call
+pop 2
+pushg 998
+storeg 998
+pushg 998
+return
+IF_else_END1:
+jump ELSE_END1
+ELSE_BEGIN1:
+pushi 0
+storel 0
+pushl 0
+WHILE_BEGIN3:
+pushi 1
+jz WHILE_END3
+jump WHILE_BEGIN3
+WHILE_END3:
+pushi 0
+storeg 998
+pushg 998
+return
+ELSE_END1:
+
+
+
+
+
+
+
+
+write__int:
+pushl -1
+storel 0
+pushl 0
+pushl 0
+writei
+return
+
+
+
+write__double:
+pushl -1
+storel 0
+pushl 0
+pushl 0
+writef
+return
+
+
+
+write__string:
+pushl -1
+storel 0
+pushl 0
+pushl 0
+writes
+return
+
+
+
+write__char:
+pushl -1
+storel 0
+pushl 0
+pushl 0
+writes
+return
+
+
+
+write__boolean:
+pushl -1
+storel 0
+pushl 0
+pushl 0
+writei
+return
+
+
+
+readInt:
+read
+atoi
+storeg 998
+return
+
+
+
+readReal:
+read
+atof
+storeg 998
+return
+
+
+
+readString:
+read
+storeg 998
+return
+
+
+
+readChar:
+read
+storeg 998
+return
+
+
+
+readBool:
+read
+atoi
+storeg 998
+return
+
+
+
